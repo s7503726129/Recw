@@ -39,13 +39,13 @@ public class BoardController {
 
 	    model.addAttribute("list", service.list());
 	  }
-	  //ÀĞ±â
+	  //ì½ê¸°
 	  @RequestMapping(value = "/read", method = RequestMethod.GET)
 	  public void read(@RequestParam("board_num") int board_num, Model model) throws Exception {
 
 	    model.addAttribute(service.read(board_num));
 	  }
-	  //»èÁ¦
+	  //ì‚­ì œ
 	  @RequestMapping(value = "/remove", method = RequestMethod.POST)
 	  public String remove(@RequestParam("board_num") int board_num, RedirectAttributes rttr) throws Exception {
 
@@ -55,13 +55,13 @@ public class BoardController {
 
 	    return "redirect:/board/list";
 	  }
-	  //¼öÁ¤Àü ¹øÈ£ 
+	  //ìˆ˜ì • ì „ ë²ˆí˜¸ ì½ê¸°
 	  @RequestMapping(value = "/modify", method = RequestMethod.GET)
 	  public void modifyGET(int board_num, Model model) throws Exception {
 
 	    model.addAttribute(service.read(board_num));
 	  }
-	  //¼öÁ¤
+	  //ìˆ˜ì •
 	  @RequestMapping(value = "/modify", method = RequestMethod.POST)
 	  public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 

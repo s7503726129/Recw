@@ -9,11 +9,13 @@
 	</select>
 
 
-	<insert id="insertMember">
-		insert into member (mem_num,email,password,nickname,level) values
-		(#{mem_num},#{email},#{password},#{nickname},#{level}
-	
-	</insert>
+<!-- 	<insert id="insertMember" parameterType="MemberVO">
+		<![CDATA[
+			INSERT INTO MEMBER(MEM_NUM, EMAIL, PASSWORD, NICKNAME, LEVEL) VALUES
+			(seq.nextval, #{email}, #{password}, #{nickname}, 0)
+		]]>
+
+	</insert> -->
 
 
 </mapper>

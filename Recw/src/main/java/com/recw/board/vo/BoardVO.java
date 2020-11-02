@@ -6,7 +6,7 @@ public class BoardVO {
 	private Integer board_num;
 	private String mem_num;
 	private String board_title;
-	private String nickname;//ÀÛ¼ºÀÚ
+	private String nickname;//ì‘ì„±ì
 	private Integer board_category;
 	private String board_content;
 	private Date board_date;

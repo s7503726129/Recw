@@ -39,7 +39,7 @@ public class BoardDAO implements IBoardDAO {
 
   @Override
   public List<BoardVO> list() throws Exception {
-    return session.selectList(namespace + ".list");
+    return session.selectList(namespace + ".listAll");
   }
 
   @Override

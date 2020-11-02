@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Floating labels example · Bootstrap</title>
+<title>부동산 커뮤니티</title>
 <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/floating-labels/">
     <!-- Bootstrap core CSS -->
 <link href="${path}/resources/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
-        -moz-user-select: none; 
+        -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
       }
@@ -57,7 +57,8 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
+ 
   <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2020</p>
 </form>
 

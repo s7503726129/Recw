@@ -20,9 +20,7 @@ public class MemberController {
 	
 	@Autowired
 	MemberService service;
-	
-	
-	
+
 	@ModelAttribute("serverTime")
 	public String getServerTime(Locale locale) {
 		
@@ -31,22 +29,28 @@ public class MemberController {
 		
 		return dateFormat.format(date);
 	}
+	@RequestMapping(value="/terms")
+	public String terms() {
+		
+		return "member/terms";
+	}
 	
-	
-	
-	//�α��� �޼ҵ�
-	@RequestMapping(value="login", method = RequestMethod.GET)
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
 		
 		return "member/login";
 	}
 	
+	@RequestMapping(value = "/joinView", method = RequestMethod.GET)
+	public String joinView(MemberVO vo) {
+		return "member/join";
+	}
 	
-	//ȸ������ �޼ҵ�
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/joinProc", method = RequestMethod.POST)
 	public String joinReg(MemberVO member) {
 		
-		service.memberRegister(member);
+		service.reg_Member(member);
 		
 		return "/member/joinOk";
 	}
