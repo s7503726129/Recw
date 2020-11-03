@@ -4,15 +4,11 @@
 
 <mapper namespace="com.recw.mapper.MemberMapper">
 
-	<select id="getTime" resultType="string">
-		select now()
-	</select>
-
-
-	<insert id="insertMember">
-		insert into member (mem_num,email,password,nickname,level) values
-		(#{mem_num},#{email},#{password},#{nickname},#{level}
-	
+	<insert id="insertMember" parameterType="com.recw.member.vo.MemberVO">
+		<![CDATA[
+			INSERT INTO MEMBER(MEM_NUM, MEM_EMAIL, MEM_PASSWORD, MEM_NICKNAME, MEM_REG_DATE, MEM_LEVEL) VALUES
+			(member_SEQ.nextval, #{email}, #{password}, #{nickname}, SYSDATE, 0)
+		]]>
 	</insert>
 
 

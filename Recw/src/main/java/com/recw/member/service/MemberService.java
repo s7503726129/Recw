@@ -14,7 +14,36 @@ public class MemberService implements IMemberService {
 	private MemberDao dao;
 
 	@Override
-	public void memberRegister(MemberVO member) {
+	public int reg_Member(MemberVO member) {
+		// TODO Auto-generated method stub
+		System.out.println("dao service in --------------------");
+		System.out.println(member.getEmail());
+		System.out.println(member.getPassword());
+		System.out.println(member.getNickname());
+		System.out.println("dao service out --------------------");
+		return dao.reg_Member(member);
+	}
+
+	@Override
+	public void read_Member(MemberVO member) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update_Member(MemberVO member) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete_Member(MemberVO member) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void list_Member(MemberVO member) {
 		// TODO Auto-generated method stub
 		
 	}

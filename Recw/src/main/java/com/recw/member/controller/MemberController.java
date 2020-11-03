@@ -1,5 +1,6 @@
 package com.recw.member.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -13,42 +14,59 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.recw.member.service.MemberService;
 import com.recw.member.vo.MemberVO;
 
-
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-	
+
 	@Autowired
 	MemberService service;
-	
-	
-	
+	Locale locale;
+
+
 	@ModelAttribute("serverTime")
 	public String getServerTime(Locale locale) {
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		return dateFormat.format(date);
 	}
-	
-	
-	
-	//�α��� �޼ҵ�
-	@RequestMapping(value="login", method = RequestMethod.GET)
-	public String login() {
-		
-		return "member/login";
+
+	@RequestMapping(value = "terms")
+	public String terms() {
+
+		return "/member/terms";
 	}
-	
-	
-	//ȸ������ �޼ҵ�
-	@RequestMapping(value = "/join", method = RequestMethod.POST)
+
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login() {
+
+		return "/member/login";
+	}
+
+	@RequestMapping(value = "joinView", method = RequestMethod.GET)
+	public String joinView(MemberVO vo) {
+		return "/member/join";
+	}
+
+	@RequestMapping(value = "joinProc", method = RequestMethod.POST)
 	public String joinReg(MemberVO member) {
 		
-		service.memberRegister(member);
+		System.out.println("dao controller in --------------------");
+		System.out.println(member.getEmail());
+		System.out.println(member.getPassword());
+		System.out.println(member.getNickname());
+		System.out.println("dao controller out --------------------");
 		
-		return "/member/joinOk";
+		
+		System.out.println("controller");
+		int result = service.reg_Member(member);
+		System.out.println(result);
+		if (result > 0) {
+			return "redirect:/";
+		} else {
+			return "redirect:/";
+		}
 	}
 
 }
