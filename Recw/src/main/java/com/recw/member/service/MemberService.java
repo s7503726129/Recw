@@ -1,6 +1,8 @@
 package com.recw.member.service;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
@@ -53,9 +55,16 @@ public class MemberService implements IMemberService {
 	@Override
 	public int checkNick(String nickname) {
 		// TODO Auto-generated method stub
-		System.out.println("Service : " + nickname);
 		return dao.checkNick(nickname);
 	}
+
+	@Override
+	public List<MemberVO> login_Member(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return dao.login_Member(vo);
+	}
+	
+	
 	
 	
 //	

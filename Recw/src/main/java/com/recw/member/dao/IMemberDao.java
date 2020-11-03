@@ -1,5 +1,7 @@
 package com.recw.member.dao;
 
+import java.util.List;
+
 import com.recw.member.vo.MemberVO;
 
 public interface IMemberDao {
@@ -24,5 +26,8 @@ public interface IMemberDao {
 
 	// 닉네임 중복 체크
 	public int checkNick(String nickname);
+	
+	//로그인
+	public List<MemberVO> login_Member(MemberVO vo);
 
 }

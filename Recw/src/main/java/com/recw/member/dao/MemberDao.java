@@ -1,5 +1,7 @@
 package com.recw.member.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -61,9 +63,15 @@ public class MemberDao implements IMemberDao {
 	@Override
 	public int checkNick(String nickname) {
 		// TODO Auto-generated method stub
-		System.out.println("Dao : " + nickname);
 		int result = factory.openSession().selectOne(namespace + ".checkNick", nickname);
 		return result;
+	}
+
+	@Override
+	public List<MemberVO> login_Member(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return factory.openSession().selectOne(namespace+".loginMemver", vo);
+		
 	}
 
 }

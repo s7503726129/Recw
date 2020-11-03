@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.recw.member.service.IMemberService;
 import com.recw.member.vo.MemberVO;
@@ -38,13 +39,19 @@ public class MemberController {
 		return "/member/terms";
 	}
 
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login")
 	public String login() {
 
 		return "/member/login";
 	}
+	@RequestMapping(value = "loginProc", method = RequestMethod.POST)
+	public ModelAndView loginProc(MemberVO vo) {
+		System.out.println(vo.getEmail() + vo.getPassword());
+		System.out.println(service.login_Member(vo));
+		return new ModelAndView("/", "list", service.login_Member(vo));
+	}
 
-	@RequestMapping(value = "joinView", method = RequestMethod.GET)
+	@RequestMapping(value = "joinView")
 	public String joinView(MemberVO vo) {
 		return "/member/join";
 	}
@@ -69,7 +76,6 @@ public class MemberController {
 	@RequestMapping(value = "checkNick", method = { RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
 	public int checkNick(@RequestParam("nickname") String nickname) {
-		System.out.println("Controller : " + nickname);
 		return service.checkNick(nickname);
 	}
 

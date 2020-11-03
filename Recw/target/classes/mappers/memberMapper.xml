@@ -21,6 +21,12 @@
 			(member_SEQ.nextval, #{email}, #{password}, #{nickname}, SYSDATE, 0)
 		]]>
 	</insert>
+	
+	<select id="loginMemver" parameterType="com.recw.member.vo.MemberVO" resultType="com.recw.member.vo.MemberVO">
+	<![CDATA[
+			SELECT * FROM MEMBER WHERE MEM_EMAIL = #{email} AND MEM_PASSWORD = #{password}
+		]]>
+	</select>
 
 
 </mapper>

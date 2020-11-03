@@ -54,7 +54,7 @@
 
 </head>
 <body>
-	<form class="form-signin">
+	<div class="form-signin">
 		<div class="text-center mb-4">
 			<h1 class="h3 mb-3 font-weight-normal">부동산 커뮤니티</h1>
 		</div>
@@ -78,24 +78,17 @@
 		</p>
 		<hr>
 
-		<div class="form-label-group">
-			<input type="email" id="inputEmail" class="form-control"
-				placeholder="이메일" autofocus> <label for="inputEmail">이메일</label>
-		</div>
+		<form action="loginProc" method="post">
+			<div class="form-label-group">
+				<input type="email" id="inputEmail" class="form-control" placeholder="이메일" autofocus> <label for="inputEmail">이메일</label>
+			</div>
 
-		<div class="form-label-group">
-			<input type="password" id="inputPassword" class="form-control"
-				placeholder="비밀번호"> <label for="inputPassword">비밀번호</label>
-		</div>
-
-		<div class="checkbox mb-3">
-			<label> <input type="checkbox" value="remember-me">
-				자동 로그인
-			</label>
-		</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:location.href='login';">로 그 인</button>
-			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='joinView';">회원 가입</button>
-	</form>
-
+			<div class="form-label-group">
+				<input type="password" id="inputPassword" class="form-control" placeholder="비밀번호"> <label for="inputPassword">비밀번호</label>
+			</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
+		<button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='joinView';">회원 가입</button>
+		</form>
+	</div>
 </body>
 </html>
