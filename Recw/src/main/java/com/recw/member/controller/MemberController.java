@@ -1,6 +1,5 @@
 package com.recw.member.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -10,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.recw.member.service.MemberService;
+import com.recw.member.service.IMemberService;
 import com.recw.member.vo.MemberVO;
 
 @Controller
@@ -19,9 +20,8 @@ import com.recw.member.vo.MemberVO;
 public class MemberController {
 
 	@Autowired
-	MemberService service;
+	IMemberService service;
 	Locale locale;
-
 
 	@ModelAttribute("serverTime")
 	public String getServerTime(Locale locale) {
@@ -50,23 +50,28 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "joinProc", method = RequestMethod.POST)
-	public String joinReg(MemberVO member) {
-		
-		System.out.println("dao controller in --------------------");
-		System.out.println(member.getEmail());
-		System.out.println(member.getPassword());
-		System.out.println(member.getNickname());
-		System.out.println("dao controller out --------------------");
-		
-		
-		System.out.println("controller");
-		int result = service.reg_Member(member);
-		System.out.println(result);
+	public String joinReg(MemberVO vo) {
+
+		int result = service.reg_Member(vo);
 		if (result > 0) {
 			return "redirect:/";
 		} else {
 			return "redirect:/";
 		}
 	}
+	
+	@RequestMapping(value = "checkEmail", method = { RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public int checkEmail(MemberVO vo) {
+		return service.checkEmail(vo);
+	}
+	
+	@RequestMapping(value = "checkNick", method = { RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public int checkNick(@RequestParam("nickname") String nickname) {
+		System.out.println("Controller : " + nickname);
+		return service.checkNick(nickname);
+	}
+
 
 }

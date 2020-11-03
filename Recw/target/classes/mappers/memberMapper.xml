@@ -4,6 +4,17 @@
 
 <mapper namespace="com.recw.mapper.MemberMapper">
 
+	<select id="checkEmail" parameterType="com.recw.member.vo.MemberVO" resultType="java.lang.Integer">
+		<![CDATA[
+		SELECT COUNT(*) FROM MEMBER WHERE MEM_EMAIL = #{email}
+		]]>
+	</select>
+
+	<select id="checkNick" parameterType="java.lang.String" resultType="java.lang.Integer">
+		<![CDATA[
+		SELECT COUNT(*) FROM MEMBER WHERE MEM_NICKNAME = #{nickname}
+		]]>
+	</select>
 	<insert id="insertMember" parameterType="com.recw.member.vo.MemberVO">
 		<![CDATA[
 			INSERT INTO MEMBER(MEM_NUM, MEM_EMAIL, MEM_PASSWORD, MEM_NICKNAME, MEM_REG_DATE, MEM_LEVEL) VALUES

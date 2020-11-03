@@ -93,10 +93,8 @@
 				자동 로그인
 			</label>
 		</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">로
-				그 인</button>
-			<button class="btn btn-lg btn-primary btn-block" type="button">회원
-				가입</button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="javascript:location.href='login';">로 그 인</button>
+			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='joinView';">회원 가입</button>
 	</form>
 
 </body>
